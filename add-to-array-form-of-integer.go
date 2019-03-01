@@ -9,7 +9,6 @@ import (
 func AddToArrayForm(A []int, K int) []int {
 
 	var a bytes.Buffer
-	var result []int
 
 	for i := 0; i < len(A); i++ {
 		a.WriteString(strconv.Itoa(A[i]))
@@ -19,9 +18,13 @@ func AddToArrayForm(A []int, K int) []int {
 	aBInt, _ = aBInt.SetString(a.String(), 10)
 	res := aBInt.Add(aBInt, big.NewInt(int64(K)))
 
-	for _, b := range res.String() {
+	resString := res.String()
+
+	var result = make([]int, len(resString))
+
+	for i, b := range resString {
 		tmp, _ := strconv.Atoi(string(b))
-		result = append(result, tmp)
+		result[i] = tmp
 	}
 
 	return result
