@@ -1,4 +1,4 @@
-package problems
+package solutions
 
 import (
 	"bytes"
@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-func addToArrayForm(A []int, K int) []int {
+func AddToArrayForm(A []int, K int) []int {
 
 	var a bytes.Buffer
 	var result []int
